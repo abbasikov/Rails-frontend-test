@@ -4,7 +4,7 @@ Thank you for applying to Invisible Commerce! This is a small test to help us ge
 
 ## The Task
 
-We have a simple Rails app that allows editing of custom "Return Reasons". We'd like you to take the Figma design and implement it in the app.
+We have a simple Rails app that allows editing of custom "Return Reasons". We'd like you to take the [Figma design](https://www.figma.com/file/ZrgctOIZqB7CMDZwkKcQrs/Front-Engineer-Exercise?type=design&node-id=1%3A384&mode=dev) and implement it in the app.
 
 This involves a few things:
 1. Update the application layout to match the design (using Tailwind CSS, already included in the app)
@@ -26,8 +26,9 @@ You can add more Reasons by clicking the "Add Reason" button and then saving or 
 
 ## Notes
 
+- There is already `modal` Stimulus controller included in the app, which you can use to implement the modal form
 - For CSS portions, you are required to use Tailwind CSS
-- For JS portions, you are required to use Stimulus/Hotwire
+- For JS portions, you are required to use Stimulus/Hotwire/Turbo
 - We will be evaluating your work based on the quality of the code, the accuracy of the implementation, and the attention to detail in the design
 - We will also be evaluating the "Railsyness" of your code, so please try to stick to the idioms and conventions of the framework
 
