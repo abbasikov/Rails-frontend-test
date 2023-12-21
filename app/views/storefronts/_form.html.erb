@@ -24,13 +24,6 @@
       <button type="button" data-action="nested-form#addAssociation" class="btn">
         <i class="add-icon"></i> Add Return Reason
       </button>
-      <div
-        data-controller="draggable-list"
-        data-action="
-      dragenter->draggable-list#dragenterContainer
-      dragleave->draggable-list#dragleaveContainer
-    "
-      >
         <%= form.simple_fields_for :reasons, @storefront.reasons.ordered do |reason_fields| %>
           <%= render 'reason', f: reason_fields %>
         <% end %>
