@@ -24,13 +24,11 @@
       <button type="button" data-action="nested-form#addAssociation" class="btn">
         <i class="add-icon"></i> Add Return Reason
       </button>
-        <%= form.simple_fields_for :reasons, @storefront.reasons.ordered do |reason_fields| %>
-          <%= render 'reason', f: reason_fields %>
-        <% end %>
+      <%= form.simple_fields_for :reasons, @storefront.reasons.ordered do |reason_fields| %>
+        <%= render 'reason', f: reason_fields %>
+      <% end %>
 
-        <div hidden data-nested-form-target="addItem"></div>
-      </div>
-
+      <div hidden data-nested-form-target="addItem"></div>
     </div>
   </div>
 
