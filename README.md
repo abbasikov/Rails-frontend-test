@@ -14,12 +14,12 @@ This involves a few things:
 
 ## Getting Started
 
+We are using Ruby 3.2.2 and Rails 7.1.2 in this project. Make sure your environment is set up to match.
+
 1. Fork this repo and clone it locally
 2. Run `bundle install`
-3. Run `yarn install`
-4. Run `rails db:setup`
-5. Run `./bin/dev`
-6. Visit `http://localhost:3000/` (which will point to `/storefronts/1/edit`)
+3. Run `./bin/dev`
+4. Visit `http://localhost:3000/` (which will point to `/storefronts/1/edit`)
 
 The included SQLite database has been pre-populated a single Storefront with 7 Reasons, which matches the Figma design. 
 You can add more Reasons by clicking the "Add Reason" button and then saving or delete them by clicking the "Remove" button and saving.
