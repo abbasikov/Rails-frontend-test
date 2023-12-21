@@ -1,0 +1,37 @@
+<div class="nested-form-wrapper">
+  <div class="dashboard-form-fields">
+    <%=
+      f.input :label,
+        label: 'Displayed reason',
+        required: true,
+        placeholder: 'Enter Displayed reason...',
+        hint: "Provide a friendly description for the reason that will be displayed to the customer."
+    %>
+    <%=
+      f.input :code,
+        label: 'Internal return code',
+        required: true,
+        placeholder: 'Enter Internal return code...',
+        hint: "For internal use only. Must be unique. To aid in analytics, we do not recommend changing the code once set."
+    %>
+    <%=
+      f.input :restricted_resolution_types,
+        label: 'Exclude Resolution Options',
+        placeholder: 'Select Resolution...',
+        collection: ['refund', 'replacement', 'store_credit'].map{ |n| [n.titleize, n] },
+        input_html: { multiple: true },
+        hint: "Specify the resolution options you would like exclude from the resolution offering. If left empty, all enabled resolution options will be offered."
+    %>
+    <%= f.input :active,
+      label: 'Reason is visible to customers'
+    %>
+    <%= f.input :ordering,
+      label: 'Ordering',
+      placeholder: 'Enter Ordering...',
+      hint: "The order in which the reason will be displayed to the customer. Reasons with lower numbers will be displayed first."
+    %>
+
+    <button type="button" class="btn-danger" data-action="nested-form#removeAssociation">Remove</button>
+    <%= f.hidden_field :_destroy %>
+  </div>
+</div>

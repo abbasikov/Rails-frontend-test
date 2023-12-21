@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  storefront: one
+  code: MyString
+  label: MyString
+  restricted_resolution_types: 
+  active: false
+  ordering: 1
+
+two:
+  storefront: two
+  code: MyString
+  label: MyString
+  restricted_resolution_types: 
+  active: false
+  ordering: 1

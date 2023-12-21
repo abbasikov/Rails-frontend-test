@@ -1,0 +1,52 @@
+<%= simple_form_for storefront, data: { controller: 'nested-form', nested_form_index_value: 'NEW_RECORD' } do |form| %>
+  <% if storefront.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(storefront.errors.count, "error") %> prohibited this storefront from being saved:</h2>
+
+      <ul>
+        <% storefront.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <div
+      class="return-reason-container"
+    >
+      <template hidden data-nested-form-target="template">
+        <%= form.simple_fields_for :reasons, Reason.new, child_index: 'NEW_RECORD' do |reason_fields| %>
+          <%= render 'reason', f: reason_fields %>
+        <% end %>
+      </template>
+
+      <button type="button" data-action="nested-form#addAssociation" class="btn">
+        <i class="add-icon"></i> Add Return Reason
+      </button>
+      <div
+        data-controller="draggable-list"
+        data-action="
+      dragenter->draggable-list#dragenterContainer
+      dragleave->draggable-list#dragleaveContainer
+    "
+      >
+        <%= form.simple_fields_for :reasons, @storefront.reasons.ordered do |reason_fields| %>
+          <%= render 'reason', f: reason_fields %>
+        <% end %>
+
+        <div hidden data-nested-form-target="addItem"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <div>
+    <div>
+      Remember to save your changes before leaving this page
+    </div>
+    <div>
+      <%= form.submit 'Save', class: 'btn-primary' %>
+    </div>
+  </div>
+<% end %>

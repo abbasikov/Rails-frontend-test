@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="IntellijSFCCConnectionSettings">
+    <option name="sourceScanned" value="true" />
+  </component>
+  <component name="IntellijSFCCDeploymentSettings">
+    <option name="json" value="{&#10;  &quot;isFullCodeVersionCleanup&quot;: false,&#10;  &quot;tasks&quot;: [],&#10;  &quot;multiInstancePair&quot;: []&#10;}" />
+  </component>
+  <component name="IntellijSFCCFileSystemListener">
+    <option name="loaded" value="true" />
+  </component>
+  <component name="ProjectRootManager" version="2" project-jdk-name="rbenv: 3.0.2" project-jdk-type="RUBY_SDK" />
+</project>
