@@ -27,7 +27,7 @@ You can add more Reasons by clicking the "Add Reason" button and then saving or 
 ## Notes
 
 - For the forms, we are using `simple_form` gem and there is an included `simple_form_tailwind.rb` initializer that you can use to customize the markup
-- There is already `modal` Stimulus controller included in the app, which you can use to implement the modal form
+- There is already a `modal` Stimulus controller included in the app, which you can use to implement the modal form
 - For CSS portions, you are required to use Tailwind CSS
 - For JS portions, you are required to use Stimulus/Hotwire/Turbo
 - We will be evaluating your work based on the quality of the code, the accuracy of the implementation, and the attention to detail in the design
