@@ -1,24 +1,36 @@
-# README
+# Invisible Commerce Rails Frontend Test
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Thank you for applying to Invisible Commerce! This is a small test to help us get a sense of your skills and how you approach problems.
 
-Things you may want to cover:
+## The Task
 
-* Ruby version
+We have a simple Rails app that allows editing of custom "Return Reasons". We'd like you to take the Figma design and implement it in the app.
 
-* System dependencies
+This involves a few things:
+1. Update the application layout to match the design (using Tailwind CSS, already included in the app)
+2. Update the page template to match the design (`app/views/storefronts/edit.html.erb`)
+3. Move the nested form for each Reason into a modal, and update the design to match
+4. Enable drag-and-drop reordering of the Reasons
 
-* Configuration
+## Getting Started
 
-* Database creation
+1. Fork this repo and clone it locally
+2. Run `bundle install`
+3. Run `yarn install`
+4. Run `rails db:setup`
+5. Run `./bin/dev`
+6. Visit `http://localhost:3000/` (which will point to `/storefronts/1/edit`)
 
-* Database initialization
+The included SQLite database has been pre-populated a single Storefront with 7 Reasons, which matches the Figma design. 
+You can add more Reasons by clicking the "Add Reason" button and then saving or delete them by clicking the "Remove" button and saving.
 
-* How to run the test suite
+## Notes
 
-* Services (job queues, cache servers, search engines, etc.)
+- For CSS portions, you are required to use Tailwind CSS
+- For JS portions, you are required to use Stimulus/Hotwire
+- We will be evaluating your work based on the quality of the code, the accuracy of the implementation, and the attention to detail in the design
+- We will also be evaluating the "Railsyness" of your code, so please try to stick to the idioms and conventions of the framework
 
-* Deployment instructions
+## Submitting Your Work
 
-* ...
+When you're done, please send us a link to your fork of this repo.
