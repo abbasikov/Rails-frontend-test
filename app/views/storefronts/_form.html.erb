@@ -32,7 +32,8 @@
         <i class="fa-solid fa-circle-plus"></i>  <span class="ml-2">Add Return Reason</span>
       </button>
           </div>
-        <% @storefront.reasons.each do |item| %>
+      <div data-controller="drag">
+        <% @reasons.each do |item| %>
           <div class=" overflow-hidden list" data-id="<%= item.id %>">
             <div class="p-4 flex justify-between items-center">
               <%= item.label %>
@@ -40,6 +41,7 @@
             </div>
           </div>
         <% end %>
+      </div>
       </div>
     </div>
       <%= form.simple_fields_for :reasons, @storefront.reasons.ordered do |reason_fields| %>
