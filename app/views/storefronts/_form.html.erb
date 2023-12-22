@@ -1,4 +1,7 @@
+
+
 <%= simple_form_for storefront, data: { controller: 'nested-form', nested_form_index_value: 'NEW_RECORD' } do |form| %>
+  
   <% if storefront.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(storefront.errors.count, "error") %> prohibited this storefront from being saved:</h2>
@@ -11,33 +14,49 @@
     </div>
   <% end %>
 
-  <div>
+   <div>
     <div
       class="return-reason-container"
     >
       <template hidden data-nested-form-target="template">
         <%= form.simple_fields_for :reasons, Reason.new, child_index: 'NEW_RECORD' do |reason_fields| %>
           <%= render 'reason', f: reason_fields %>
-        <% end %>
+       <% end %>
       </template>
 
-      <button type="button" data-action="nested-form#addAssociation" class="btn">
-        <i class="add-icon"></i> Add Return Reason
+    
+       <div class="max-w-md mx-auto mt-20 mb-20">
+      <div id="sortable-list" class="list-none p-0 ul">
+       <div class=" overflow-hidden list">
+            <button type="button" data-action="nested-form#addAssociation" class="text p-4">
+        <i class="fa-solid fa-circle-plus"></i>  <span class="ml-2">Add Return Reason</span>
       </button>
+          </div>
+        <% @storefront.reasons.each do |item| %>
+          <div class=" overflow-hidden list" data-id="<%= item.id %>">
+            <div class="p-4 flex justify-between items-center">
+              <%= item.label %>
+              <p data-action="click->modal#show" data-target="modal.editButton" data-id="<%= item.id %>">Edit</p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
       <%= form.simple_fields_for :reasons, @storefront.reasons.ordered do |reason_fields| %>
-        <%= render 'reason', f: reason_fields %>
-      <% end %>
+      
+      <%# <%= render 'reason', f: reason_fields %>
+     <% end %>
 
-      <div hidden data-nested-form-target="addItem"></div>
+      <%# <div hidden data-nested-form-target="addItem"></div> %>
     </div>
-  </div>
+  </div> 
 
-  <div>
-    <div>
+    <div class="footer">
+    <p>
       Remember to save your changes before leaving this page
-    </div>
-    <div>
-      <%= form.submit 'Save', class: 'btn-primary' %>
+    </p>
+    <div class="btn" >
+  <%= form.submit 'Save'%>
     </div>
   </div>
 <% end %>

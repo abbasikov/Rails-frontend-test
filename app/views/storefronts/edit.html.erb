@@ -1,14 +1,19 @@
-<div class="mx-auto md:w-2/3 w-full">
-  <h1>Returns</h1>
+<div class="mx-auto w-full p-5">
+ 
+<h1 class="text-2xl font-bold mb-4">Returns</h1>
 
-  <fieldset>
-    <div>
-      <legend>Return Reasons</legend>
-      Add or edit return reasons you would like to show the customers during the return request process.
-    </div>
+<div class="mx-auto w-full grid grid-cols-2 gap-4 shadow p-4 rounded-xl bg-white">
+ <div class="col-span-1">
+    <fieldset>
+      <div>
+        <legend class="mb-2 text-lg font-semibold">Return Reasons</legend>
+        <p class="text-sm">Add or edit return reasons you would like to show the customers during the return request process.</p>
+      </div>
+    </fieldset>
+  </div>
 
-    <div>
-      <%= render "form", storefront: @storefront %>
-    </div>
-  </fieldset>
+  <div class="col-span-1">
+    <%= render "form", storefront: @storefront %>
+  </div>
+  </div>
 </div>

@@ -1,29 +1,30 @@
 import { Controller } from "@hotwired/stimulus"
-
 export default class extends Controller {
   static targets = [
-    'modal'
+    'modal',
+    'editButton'
   ]
 
   show(e) {
     e.preventDefault();
 
-    this.modalTarget.open = true
-    document.querySelector('.desktop-overlay').style.zIndex = 0
+    const itemId = this.editButtonTarget.dataset.id;
+
+    // Assuming you have a method to fetch and populate modal content based on itemId
+    this.fetchAndPopulateModalContent(itemId);
+
+    this.modalTarget.open = true;
+    document.querySelector('.desktop-overlay').style.zIndex = 0;
+
     this.modalTarget.querySelectorAll('x-transition').forEach((transition) => {
-      transition.open = true
-    })
+      transition.open = true;
+    });
   }
 
-  hide(e) {
-    e.preventDefault()
+  // Add other methods as needed
 
-    this.modalTarget.querySelectorAll('x-transition').forEach((transition) => {
-      transition.open = false
-    })
-    this.modalTarget.open = false
-
-    document.querySelector('.desktop-overlay').style.zIndex = 1
-    this.dispatch('closed')
+  fetchAndPopulateModalContent(itemId) {
+    // Fetch and populate modal content based on itemId
+    // You can use AJAX or any method you prefer to load content dynamically
   }
 }
