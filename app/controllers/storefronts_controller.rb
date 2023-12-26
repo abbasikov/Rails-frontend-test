@@ -61,7 +61,7 @@ class StorefrontsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_storefront
       @storefront = Storefront.find(params[:id])
-      @reasons = @storefront.reasons.order(:ordering)
+      @reasons = @storefront.reasons.ordered
     end
 
     # Only allow a list of trusted parameters through.
