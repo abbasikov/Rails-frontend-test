@@ -123,7 +123,6 @@ line-height: 140%;
 }
 
 .dashboard-form-fields{
-
   margin-top: 20px;
 }
 
@@ -170,4 +169,13 @@ font-family: Inter;
 font-size: 16px;
 font-style: normal;
 font-weight: 600;
+}
+
+.abbr:where([title]){
+  display: none !important;
+}
+
+
+abbr{
+  display:none !important;
 }
