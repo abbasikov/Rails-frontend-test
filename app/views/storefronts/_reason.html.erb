@@ -34,8 +34,8 @@
 
 <div class="buttonDiv">
 
-    <button type="button" class="remove" data-action="nested-form#removeAssociation">Remove</button>
-   <button type="button" class="continue" data-action="nested-form#removeAssociation">
+    <button type="button" class="remove" data-action="click->modal#hide" data-modal-id="edit-reason-modal">Remove</button>
+   <button type="button" class="continue" data-action="click->modal#hide" data-modal-id="edit-reason-modal">
     Continue</button>
 
     <%= f.hidden_field :_destroy %>

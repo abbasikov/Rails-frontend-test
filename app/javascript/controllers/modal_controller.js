@@ -50,8 +50,8 @@ export default class extends Controller {
     const modal = document.getElementById(modalId);
   
     // Update form fields with pre-filled data
-    modal.querySelector('input[name="storefront[reasons_attributes][7][label]"]').value = reasonDetails.label;
-    modal.querySelector('input[name="storefront[reasons_attributes][7][code]"]').value = reasonDetails.code;
+    modal.querySelector('input[name="storefront[reasons_attributes][0][label]"]').value = reasonDetails.label;
+    modal.querySelector('input[name="storefront[reasons_attributes][0][code]"]').value = reasonDetails.code;
     // Add other fields as needed
   }
 
@@ -60,13 +60,6 @@ export default class extends Controller {
     const modalId = e.target.getAttribute("data-modal-id");
     const modal = document.getElementById(modalId);
     modal.classList.add("hidden");
-    modal.setAttribute("aria-hidden", "true");
-    // this.modalTarget.querySelectorAll('x-transition').forEach((transition) => {
-    //   transition.open = false
-    // })
-    // this.modalTarget.open = false
-
-    // document.querySelector('.desktop-overlay').style.zIndex = 1
-    // this.dispatch('closed')
+    modal.setAttribute("aria-hidden", "true")
   }
 }
