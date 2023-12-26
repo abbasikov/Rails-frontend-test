@@ -81,24 +81,24 @@
   border-bottom: 1px solid rgba(227, 230, 232, 1);
 }
 .modalHeading{
-    color: var(--Secondary-Main, black);
-    font-family: Inter;
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 600;
+  color: var(--Secondary-Main, black);
+  font-family: Inter;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
 }
 
 .hint{
-color: var(--Neutral-Dark-Grey, #292929);
-font-family: Inter;
-font-size: 14px;
-font-style: normal;
-font-weight: 400;
-line-height: 140%; /* 19.6px */
-letter-spacing: -0.154px;
-margin-top: -10px;
-margin-bottom: 20px;
-max-width: 544px;
+  color: var(--Neutral-Dark-Grey, #292929);
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%; /* 19.6px */
+  letter-spacing: -0.154px;
+  margin-top: -10px;
+  margin-bottom: 20px;
+  max-width: 544px;
 }
 
 .eyeBox{
@@ -109,13 +109,13 @@ max-width: 544px;
 }
 
 .eyeText{
-  color: var(--Neutral-Dark-Grey, #292929);
-/* Body Large/Semi Bold */
-font-family: Inter;
-font-size: 16px;
-font-style: normal;
-font-weight: 600;
-line-height: 140%;
+    color: var(--Neutral-Dark-Grey, #292929);
+  /* Body Large/Semi Bold */
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 140%;
 }
 
 .eyeHint{
@@ -129,25 +129,29 @@ line-height: 140%;
 
 .continue{
   border-radius: 8px;
-background: #FFC933;
-display: flex;
-width: 95px;
-padding: 8px 24px;
-justify-content: center;
-align-items: center;
-gap: 4px;
+  background: #FFC933;
+  display: flex;
+  width: 95px;
+  padding: 8px 24px;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
 }
 
 .remove{
   display: flex;
-width: 95px;
-padding: 8px 24px;
-justify-content: center;
-align-items: center;
-gap: 4px;
-border-radius: 8px;
-border: 2px solid var(--Additional-Error, #EB4747);
-color:#EB4747
+  width: 95px;
+  padding: 8px 24px;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  border-radius: 8px;
+  border: 2px solid var(--Additional-Error, #EB4747);
+  color:#EB4747;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
 }
 
 .buttonDiv{
@@ -164,11 +168,11 @@ color:#EB4747
 
 .edit{
   color: var(--Secondary-Main, #3164F6);
-/* Body Large/Semi Bold */
-font-family: Inter;
-font-size: 16px;
-font-style: normal;
-font-weight: 600;
+  /* Body Large/Semi Bold */
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
 }
 
 .abbr:where([title]){

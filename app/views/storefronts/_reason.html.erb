@@ -1,7 +1,7 @@
 <div class="nested-form-wrapper bg-white p-4 rounded-lg ml-16 mr-16 mainDiv">
 <div class="modal">
 <p class="modalHeading">Edit Return Reason</p>
-<i class="fa-solid fa-xmark" data-action="click->modal#hide" data-modal-id="edit-reason-modal"></i>
+<i class="fa-solid fa-xmark cursor-pointer" data-action="click->modal#hide" data-modal-id="edit-reason-modal"></i>
 </div>
   <div class="dashboard-form-fields">
     <%=
@@ -9,9 +9,9 @@
         label: 'Displayed reason',
         required: true,
         placeholder: 'Enter Displayed reason...',
-          input_html: {
-      style: 'background-color: #f8f8fb; border: 1px solid #E3E3E3; box-shadow:none; border-radius:12px; margin-top:8px;'
-    }
+        input_html: {
+          style: 'background-color: #f8f8fb; border: 1px solid #E3E3E3; box-shadow:none; border-radius:12px; margin-top:8px;'
+        }
     %>
     <p class="hint"> Provide a friendly description for the reason that will be displayed to the customer.</p>
     <%=
@@ -19,28 +19,21 @@
         label: 'Internal return code',
         required: true,
         placeholder: 'Enter Internal return code...',
-               input_html: {
-      style: 'background-color: #f8f8fb; border: 1px solid #E3E3E3; box-shadow:none; border-radius:12px; margin-top: 8px;' # Adjust padding as needed
-    }
+        input_html: {
+          style: 'background-color: #f8f8fb; border: 1px solid #E3E3E3; box-shadow:none; border-radius:12px; margin-top: 8px;' # Adjust padding as needed
+        }
     %>
 
     <p class="hint"> For internal use only. Must be unique. To aid in analytics, we do not recommend changing the code once set.</p>
+    <div class="eyeBox"><img src="<%= asset_url('eye-off.svg') %>" alt="Image Alt Text" style="margin-right:10px; width:20px"><p class="eyeText">Reason is visible to customers</p></div>
+    <p class="hint eyeHint">When hidden, this return reason is not offered as an option to the customers. Click on the eye icon to make the return reason visible.</p>
 
-
-<div class="eyeBox"><img src="<%= asset_url('eye-off.svg') %>" alt="Image Alt Text" style="margin-right:10px; width:20px"><p class="eyeText">Reason is visible to customers</p></div>
-<p class="hint eyeHint">When hidden, this return reason is not offered as an option to the customers. Click on the eye icon to make the return reason visible.</p>
-
-
-
-<div class="buttonDiv">
-
-    <button type="button" class="remove" data-action="click->modal#hide" data-modal-id="edit-reason-modal">Remove</button>
-   <button type="button" class="continue" data-action="click->modal#hide" data-modal-id="edit-reason-modal">
-    Continue</button>
-
-    <%= f.hidden_field :_destroy %>
+    <div class="buttonDiv">
+      <button type="button" class="remove" data-action="click->modal#hide" data-modal-id="edit-reason-modal">Remove</button>
+      <button type="button" class="continue" data-action="click->modal#hide" data-modal-id="edit-reason-modal">
+        Continue
+      </button>
+      <%= f.hidden_field :_destroy %>
     </div>
-
-    
   </div>
 </div>

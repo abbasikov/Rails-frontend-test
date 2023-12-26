@@ -11,12 +11,9 @@ export default class extends Controller {
     const modalId = e.target.getAttribute("data-modal-id");
     const modal = document.getElementById(modalId);
     const reasonId = e.currentTarget.dataset.id
-    // Populate modal content or perform other actions based on the clicked item
     modal.classList.remove("hidden");
     modal.setAttribute("aria-hidden", "false");
     const reasonDetails = await this.fetchReasonDetails(reasonId);
-
-    // Update modal content with pre-filled data
     this.updateModalContent(modalId, reasonDetails);
   }
 
@@ -25,7 +22,6 @@ export default class extends Controller {
     try {
       await $.ajax({
         headers: {
-          // Include the CSRF token in the headers
           "X-CSRF-Token": $('meta[name="csrf-token"]').attr("content"),
         },
         url: "/reasons/"+reasonId,
@@ -40,19 +36,15 @@ export default class extends Controller {
       });
     } catch (error) {
       console.error(error);
-      // Handle error, e.g., show an alert to the user
-      return {};
+      window.alert(error);
     }
     return res;
   }
 
   updateModalContent(modalId, reasonDetails) {
     const modal = document.getElementById(modalId);
-  
-    // Update form fields with pre-filled data
     modal.querySelector('input[name="storefront[reasons_attributes][0][label]"]').value = reasonDetails.label;
     modal.querySelector('input[name="storefront[reasons_attributes][0][code]"]').value = reasonDetails.code;
-    // Add other fields as needed
   }
 
   hide(e) {

@@ -1,73 +1,63 @@
 <div data-controller="modal">
+  <%= simple_form_for storefront, data: { controller: 'nested-form', nested_form_index_value: 'NEW_RECORD' }  do |form| %>
+    <% if storefront.errors.any? %>
+      <div style="color: red">
+        <h2><%= pluralize(storefront.errors.count, "error") %> prohibited this storefront from being saved:</h2>
+        <ul>
+          <% storefront.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
 
-<%= simple_form_for storefront, data: { controller: 'nested-form', nested_form_index_value: 'NEW_RECORD' }  do |form| %>
-  
-  <% if storefront.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(storefront.errors.count, "error") %> prohibited this storefront from being saved:</h2>
-
-      <ul>
-        <% storefront.errors.each do |error| %>
-          <li><%= error.full_message %></li>
+    <div>
+      <div class="return-reason-container">
+        <template hidden data-nested-form-target="template">
+          <%= form.simple_fields_for :reasons, Reason.new, child_index: 'NEW_RECORD' do |reason_fields| %>
+            <%= render 'reason', f: reason_fields %>
         <% end %>
-      </ul>
+        </template>
+      
+        <div class="max-w-md mx-auto">
+        <div id="sortable-list" class="list-none p-0 ul">
+        <div class=" overflow-hidden bg-[#f8f8fb]  rounded-lg">
+              <button type="button" data-action="nested-form#addAssociation" class="text p-4">
+          <i class="fa-solid fa-circle-plus"></i>  <span class="ml-2">Add Return Reason</span>
+        </button>
+            </div>
+        <div data-controller="drag">
+          <% @reasons.each do |item| %>
+            <div class=" overflow-hidden list" data-id="<%= item.id %>">
+              <div class="p-4 flex justify-between items-center">
+              <div class="flex items-center justify-center">
+                <img src="<%= asset_url('dotsIcon.svg') %>" alt="Image Alt Text" style="margin-right:15px;">
+                <img src="<%= asset_url('eye.svg') %>" alt="Image Alt Text" style="margin-right:10px; width:20px">
+                <%= item.label %></div>
+                <button class="edit" data-action="click->modal#show" data-modal-id="edit-reason-modal" data-id="<%= item.id %>">Edit</button>
+              </div>
+            </div>
+          <% end %>
+        </div>
+        </div>
+      </div>
+      </div>
+    </div> 
+
+    <div class="footer">
+      <p>
+        Remember to save your changes before leaving this page
+      </p>
+      <div class="btn" >
+      <%= form.submit 'Save'%>
+    </div>
+    </div>
+    <div id="edit-reason-modal" tabindex="-1" data-modal-target="modal" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%)] max-h-full bg-black">
+      <div class="relative p-4 w-full max-w-2xl max-h-full mx-auto">
+        <%= form.simple_fields_for :reasons, Reason.new do |reason_fields| %>
+          <%= render 'reason', f: reason_fields %>
+        <% end %>
+      </div>
     </div>
   <% end %>
-
-   <div>
-    <div
-      class="return-reason-container"
-    >
-      <template hidden data-nested-form-target="template">
-        <%= form.simple_fields_for :reasons, Reason.new, child_index: 'NEW_RECORD' do |reason_fields| %>
-          <%= render 'reason', f: reason_fields %>
-       <% end %>
-      </template>
-
-    
-       <div class="max-w-md mx-auto">
-      <div id="sortable-list" class="list-none p-0 ul">
-       <div class=" overflow-hidden bg-[#f8f8fb]  rounded-lg">
-            <button type="button" data-action="nested-form#addAssociation" class="text p-4">
-        <i class="fa-solid fa-circle-plus"></i>  <span class="ml-2">Add Return Reason</span>
-      </button>
-          </div>
-      <div data-controller="drag">
-        <% @reasons.each do |item| %>
-          <div class=" overflow-hidden list" data-id="<%= item.id %>">
-            <div class="p-4 flex justify-between items-center">
-            <div class="flex items-center justify-center">
-              <img src="<%= asset_url('dotsIcon.svg') %>" alt="Image Alt Text" style="margin-right:15px;">
-              <img src="<%= asset_url('eye.svg') %>" alt="Image Alt Text" style="margin-right:10px; width:20px">
-              <%= item.label %></div>
-              <button class="edit" data-action="click->modal#show" data-modal-id="edit-reason-modal" data-id="<%= item.id %>">Edit</button>
-            </div>
-          </div>
-        <% end %>
-      </div>
-      </div>
-    </div>
-    </div>
-  </div> 
-  
-
-<div class="footer">
-    <p>
-      Remember to save your changes before leaving this page
-    </p>
-    <div class="btn" >
-    <%= form.submit 'Save'%>
-</div>
-  </div>
- <!-- Add this modal container at the end of your _form.html.erb -->
-  <div id="edit-reason-modal" tabindex="-1" data-modal-target="modal" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%)] max-h-full bg-black">
-    <div class="relative p-4 w-full max-w-2xl max-h-full mx-auto">
-      <!-- Your modal content goes here -->
-      <%= form.simple_fields_for :reasons, Reason.new do |reason_fields| %>
-        <%= render 'reason', f: reason_fields %>
-      <% end %>
-    </div>
-  </div>
-<% end %>
-
 </div>
