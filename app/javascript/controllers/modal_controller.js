@@ -6,19 +6,19 @@ export default class extends Controller {
   ]
 
   show(e) {
-    e.preventDefault();
+    e.preventDefault()
+    const modalId = e.target.getAttribute("data-modal-id");
+    const modal = document.getElementById(modalId);
+    const reasonId = e.currentTarget.dataset.id
+    // Populate modal content or perform other actions based on the clicked item
+    // const reasonDetails = await this.fetchReasonDetails(reasonId);
 
-    const itemId = this.editButtonTarget.dataset.id;
+    // // Update modal content with pre-filled data
+    // debugger
+    // this.updateModalContent(modalId, reasonDetails);
 
-    // Assuming you have a method to fetch and populate modal content based on itemId
-    this.fetchAndPopulateModalContent(itemId);
-
-    this.modalTarget.open = true;
-    document.querySelector('.desktop-overlay').style.zIndex = 0;
-
-    this.modalTarget.querySelectorAll('x-transition').forEach((transition) => {
-      transition.open = true;
-    });
+    modal.classList.remove("hidden");
+    modal.setAttribute("aria-hidden", "false");
   }
 
   // Add other methods as needed
