@@ -30,6 +30,7 @@ gem "tailwindcss-rails"
 gem "jbuilder"
 
 gem 'simple_form'
+gem 'acts_as_list'
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
